@@ -61,9 +61,14 @@ To try this demo out:
 
 2. Test the app:
     ```
-    $ curl localhost:8000
-    {"Hello":"World"}
-    $ curl localhost:8000/items/42?q=Slartibartfast
-    {"item_id":42,"q":"Slartibartfast"}
+    $ curl -s localhost:8000 | jq .
+    {
+      "Hello": "World"
+    }
+    $ curl -s localhost:8000/items/42?q=Slartibartfast | jq .
+    {
+      "item_id": 42,
+      "q": "Slartibartfast"
+    }
     ```
 

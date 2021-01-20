@@ -1,0 +1,27 @@
+{
+    "listeners": {
+        "*:8000": {
+            "pass": "routes"
+        }
+    },
+    "routes": [
+        {
+            "action": {
+                "pass": "applications/api"
+            }
+        }
+    ],
+    "applications": {
+        "api": {
+            "type": "python 3.7",
+            "home": "/app",
+            "module": "apigateway.main",
+            "callable": "app",
+            "limits": {
+                "requests": 100
+            },
+            "processes": {}
+        }
+    },
+    "access_log": "/var/log/access.log"
+}
